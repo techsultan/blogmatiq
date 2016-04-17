@@ -1,0 +1,8 @@
+# PYTHON FILES
+*.pyc
+
+# Virtualenv 
+bin/
+lib/
+include/
+
