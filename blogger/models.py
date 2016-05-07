@@ -48,7 +48,6 @@ class BlogCategory(models.Model):
 	def __unicode__(self):
 		return self.name 
 
-
 class BlogPost(models.Model):
 	category = models.ForeignKey(BlogCategory, related_name="posts")
 	title = models.CharField(max_length=100)
