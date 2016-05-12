@@ -14,7 +14,18 @@ class Socialite(models.Model):
 	profile_page = models.SlugField(max_length=120, blank=True)
 	joined = models.DateTimeField(auto_now_add=True)
 	bio = models.TextField(max_length=500)
+	updated = models.DateTimeField(null=True, blank=True, editable=False)
 
+	def save(self, *args, **kwargs):
+		if not self.profile_page:
+			user_names = self.user.first_name + self.user.last_name
+			self.profile_page = slugify(self.user_names[:100])
+		if self.joined:
+			self.updated = timezone.now()
+		super(Socialite, self).save(*args, **kwargs)
+
+	def __unicode__(self):
+		return self.profile_page
 
 class ContentTypeModel(models.Model):
 	content_type = models.ForeignKey(ContentType)
