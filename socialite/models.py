@@ -51,6 +51,3 @@ class Comment(ContentTypeModel):
 	def __unicode__(self):
 		return "%s" % (self.title)
 
-
-
-
