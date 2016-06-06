@@ -58,5 +58,3 @@ class BlogPost(models.Model):
 
 	def __unicode__(self):
 		return "%s => %s" % (self.title, self.category.name)
-
-
