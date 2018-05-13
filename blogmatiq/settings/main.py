@@ -77,6 +77,7 @@ DATABASES = {
         'NAME': 'talklogue',
         'USER': 'speakie',
         'PASSWORD': 'Parrot123',
+        'PORT': ''
     }
 }
 
