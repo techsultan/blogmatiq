@@ -3,7 +3,7 @@ from blogmatiq.settings.main import *
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
 ALLOWED_HOSTS = ['localhost', 'SERVER_IP', ]
 
