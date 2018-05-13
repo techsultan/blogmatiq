@@ -48,17 +48,20 @@ class Tag(ContentTypeModel):
 	def __unicode__(self):
 		return self.tag 
 
-class Comment(ContentTypeModel):
-	title = models.CharField(max_length=100)
-	commenter = models.ForeignKey(Socialite, related_name="comments")
-	page = models.SlugField(max_length=120, blank=True)
+class Comment(models.Model):
+	commenter = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
+	subject = models.CharField(max_length=100)
+	link = models.SlugField(max_length=120, blank=True)
+	blog_post = models.ForeignKey(BlogPost, related_name="comments", on_delete=models.CASCADE)
+	body = models.TextField(max_length=500)
 	comment_date = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return "%s" % (self.subject)
+
 	def save(self, *args, **kwargs):
-		if not self.page:
-			self.page = slugify(self.title)
+		if not self.link:
+			self.link = slugify(self.subject)
 		super(Comment, self).save(*args, **kwargs)
 
-	def __unicode__(self):
-		return "%s" % (self.title)
 
