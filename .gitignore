@@ -2,7 +2,6 @@
 *.pyc
 
 # Virtualenv 
-bin/
-lib/
-include/
+blog_env/
+
 
