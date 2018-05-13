@@ -1,7 +1,11 @@
-# PYTHON FILES
+#Virtualenv
+tech_env/
+
+#Compiled Python Files
 *.pyc
 
-# Virtualenv 
-blog_env/
+#Frontend Build
+node_modules/
+bower_components/
 
 
