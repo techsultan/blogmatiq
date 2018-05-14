@@ -26,7 +26,7 @@ class Blogger(models.Model):
 		super(Blogger, self).save(*args, **kwargs)
 
 class Blog(models.Model):
-	blogger = models.ForeignKey(Blogger, related_name="blogs", on_delete=models.CASCADE)
+	owner = models.ForeignKey(Blogger, related_name="blogs", on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
 	page = models.SlugField(max_length=110, blank=True, null=True)
@@ -35,6 +35,12 @@ class Blog(models.Model):
 
 	def __str__(self):
 		return "%s" % (self.name)
+
+	def save(self, *args, **kwargs):
+		if not self.page:
+			self.page = slugify(self.name)
+		super(Blog, self).save(*args, **kwargs)
+    		
 
 class BlogCategory(models.Model):
 	name = models.CharField(max_length=100)

@@ -39,6 +39,24 @@ class BloggerSerializer(serializers.HyperlinkedModelSerializer):
         return obj.user.last_name
 
 class BlogSerializer(serializers.HyperlinkedModelSerializer):
+    """
+    BlogSerializer is the API Serializer class for the blogger.Blog model
+    """
+    categories = serializers.HyperlinkedRelatedField(
+        many=True,
+        queryset=BlogCategory.objects.all(),
+        view_name='blog_api:blogcategory_detail',
+        lookup_field="link"
+        )
+    owner = serializers.HyperlinkedRelatedField(
+        queryset=Blogger.objects.all(),
+        view_name="blog_api:blogger_detail",
+        lookup_field = 'link')
+    
+    class Meta:
+        model = Blog
+        fields = get_model_field_names(Blog, ['id'])
+class BlogSerializer(serializers.HyperlinkedModelSerializer):
     pass 
 
 class BlogCategorySeriaizer(serializers.HyperlinkedModelSerializer):
