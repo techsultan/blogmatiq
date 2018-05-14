@@ -26,7 +26,7 @@ class Blogger(models.Model):
 		super(Blogger, self).save(*args, **kwargs)
 
 class Blog(models.Model):
-	blogger = models.ForeignKey(Blogger, related_name="blog", on_delete=models.CASCADE)
+	blogger = models.ForeignKey(Blogger, related_name="blogs", on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
 	page = models.SlugField(max_length=110, blank=True, null=True)
