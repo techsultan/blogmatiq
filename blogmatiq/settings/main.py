@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'blogger',
+    'socialite',
 ]
 
 MIDDLEWARE_CLASSES = [
