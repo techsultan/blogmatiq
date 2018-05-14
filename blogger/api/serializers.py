@@ -92,7 +92,7 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     comments = serializers.HyperlinkedRelatedField(
         many=True,
         queryset = Comment.objects.all(),
-        view_name = "socialite_api:comment_detail"
+        view_name = "blog_api:comment_detail"
     )
     blog_url = serializers.SerializerMethodField()
     category_url = serializers.SerializerMethodField()
