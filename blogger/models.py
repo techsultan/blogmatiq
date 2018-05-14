@@ -68,6 +68,8 @@ class BlogPost(models.Model):
 	body = models.TextField()
 	post_date = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(blank=True, null=True, editable=False)
-
+	
 	def __str__(self):
 		return "%s => %s" % (self.title, self.category.name)
+	
+
