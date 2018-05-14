@@ -1,5 +1,7 @@
 from rest_framework import serializers 
+from django.contrib.auth.models import User 
 from blogger.models import (Blogger, Blog, BlogCategory, BlogPost)
+from blogmatiq.utils.models import get_model_field_names
 
 class BloggerSerializer(serializers.HyperlinkedModelSerializer):
     """
