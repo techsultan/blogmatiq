@@ -28,7 +28,7 @@ class BloggerSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_blog_url(self, obj):
         """
-        Returns the primary/first blog owned by this Blogger.
+        Returns the page link to the primary/first blog owned by this Blogger.
         """
         return obj.blogs.all()[0].page
 
