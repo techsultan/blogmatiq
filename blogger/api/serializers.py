@@ -1,8 +1,8 @@
 from rest_framework import serializers 
 from django.contrib.auth.models import User 
-from blogger.models import (Blogger, Blog, BlogCategory, BlogPost)
+from blogger.models import (Blogger, Blog, BlogCategory, BlogPost, Comment)
 from blogmatiq.utils.models import get_model_field_names
-from socialite.models import Tag, Comment 
+from socialite.models import Tag
 class BloggerSerializer(serializers.HyperlinkedModelSerializer):
     """
         BloggerSerializer is the API serializer for the blogger.Blogger model
@@ -107,3 +107,17 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     def get_category_url(self, obj):
         return obj.category.page
 
+class CommentSerializer(serializers.HyperlinkedModelSerializer):
+    commenter = serializers.HyperlinkedRelatedField(
+        queryset = User.objects.all(),
+        view_name = "socialite_api:user_detail"
+    )
+    blog_post = serializers.HyperlinkedRelatedField(
+        queryset = BlogPost.objects.all(),
+        view_name = "blog_api:blogpost_detail",
+        lookup_field = "page"
+    )
+    
+    class Meta:
+        model = Comment 
+        fields = get_model_field_names(Comment, ['id'])
