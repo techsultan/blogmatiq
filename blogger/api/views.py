@@ -1,7 +1,28 @@
-from blogger.serializers import (BloggerSerializer, BlogSerializer, BlogCategorySerializer,
-BlogPostSerializer, CommentSerializer)
+from blogger.models import (
+	Blogger, Blog, BlogCategory, BlogPost, Comment
+)
+from blogger.serializers import (
+	BloggerSerializer, BlogSerializer, BlogCategorySerializer,
+	BlogPostSerializer, CommentSerializer
+	)
+from django.http import Http404 
+from rest_framework import viewsets, generics
+from rest_framework.reverse import reverse 
+from rest_framework.response import Response 
 
+#Import the filter classes and backends to use with the Blogger API 
+from django_filters.rest_framework import DjangoFilterBackend
+from  rest_framework import filters as drf_filters 
 
+#Authentication and Permission classes for access to the API endpoints
+from rest_framework.decorators import (api_view, authentication_classes)
+from rest_framework.permissions import (
+	IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly, DjangoModelPermissions
+)
+
+from rest_framework.authentication import (
+	SessionAuthentication, BasicAuthentication, TokenAuthentication
+)
 
 
 
