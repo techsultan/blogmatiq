@@ -17,14 +17,14 @@ class Socialite(models.Model):
 	updated = models.DateTimeField(null=True, blank=True, editable=False)
 
 	def save(self, *args, **kwargs):
-		if not self.profile_page:
+		if not self.page:
 			user_names = self.user.first_name + self.user.last_name
-			self.profile_page = slugify(self.user_names[:100])
+			self.page = slugify(self.user_names[:100])
 		if self.joined:
 			self.updated = timezone.now()
 		super(Socialite, self).save(*args, **kwargs)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.profile_page
 
 class ContentTypeModel(models.Model):
@@ -45,7 +45,7 @@ class Tag(ContentTypeModel):
 			self.page = slugify(self.tag)
 		super(Tag, self).save(*args, **kwargs)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.tag 
 
 

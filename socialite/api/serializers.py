@@ -32,3 +32,13 @@ class UserSerializer(serializers.ModelSerializer):
         """
         return slugify(obj.first_name + obj.last_name)[:100]
 
+class SocialiteSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.HyperlinkedRelatedField(
+        queryset = User.objects.all(),
+        view_name = 'socialite_api:user_detail',
+        lookup_field = "page"
+    )
+
+    class Meta:
+        model = Socialite 
+        fields = get_model_field_names()
