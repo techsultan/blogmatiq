@@ -26,12 +26,12 @@ from rest_framework.authentication import (
 
 
 
-def get_object(model_name, link):
+def get_object(model_name, page):
     """
     A utility function to do a get on any Django model using its 'url' field
     """
     try:
-        model_name.objects.get(link=link)
+        model_name.objects.get(page=page)
     except Object.DoesNotExist:
         raise Http404
 
