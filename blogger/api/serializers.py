@@ -9,7 +9,7 @@ class BloggerSerializer(serializers.HyperlinkedModelSerializer):
         Default data format is JSON.
     """
     user = serializers.HyperlinkedRelatedField(
-        queryset= User.objectd.all(),
+        queryset= User.objects.all(),
         view_name = 'socialite_api:user_detail' ,
         lookup_field = "page"
     )

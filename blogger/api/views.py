@@ -1,7 +1,7 @@
 from blogger.models import (
 	Blogger, Blog, BlogCategory, BlogPost, Comment
 )
-from blogger.serializers import (
+from blogger.api.serializers import (
 	BloggerSerializer, BlogSerializer, BlogCategorySerializer,
 	BlogPostSerializer, CommentSerializer
 	)
