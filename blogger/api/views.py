@@ -51,8 +51,8 @@ def blog_api_root(request, format=None):
 class BloggerListView(generics.ListCreateAPIView):
     queryset = Blogger.objects.all()
     serializer_class = BloggerSerializer
-    filter_fields = Blogger.filterable_fields
-    search_fields = Blogger.searchable_fields
+    #filter_fields = Blogger.filterable_fields
+    #search_fields = Blogger.searchable_fields
     lookup_field = "page"
 
 class BloggerDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -63,8 +63,8 @@ class BloggerDetailView(generics.RetrieveUpdateDestroyAPIView):
 class BlogListView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    filter_fields = Blog.filterable_fields
-    search_fields = Blog.searchable_fields
+    #filter_fields = Blog.filterable_fields
+    #search_fields = Blog.searchable_fields
     lookup_field = "page"
 
 class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -75,8 +75,8 @@ class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
 class BlogCategoryListView(generics.ListCreateAPIView):
     queryset = BlogCategory.objects.all()
     serializer_class = BlogCategorySerializer
-    filter_fields = BlogCategory.filterable_fields
-    search_fields = BlogCategory.searchable_fields
+    #filter_fields = BlogCategory.filterable_fields
+    #search_fields = BlogCategory.searchable_fields
     lookup_field = "page"
 
 class BlogCategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -88,8 +88,8 @@ class BlogPostListView(generics.ListCreateAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = BlogPost.filterable_fields
-    search_fields = BlogPost.searchable_fields
+    #filter_fields = BlogPost.filterable_fields
+    #search_fields = BlogPost.searchable_fields
     lookup_field  = "page"
 
 class BlogPostDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -97,7 +97,7 @@ class BlogPostDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BlogPostSerializer
     lookup_field = "page"
 
-class CommentListView(generics.ListCreateAPIView):
+class CommentListAPIView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer 
     lookup_field = "page"

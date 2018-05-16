@@ -11,7 +11,7 @@ class Blogger(models.Model):
 	user = models.OneToOneField(User, related_name="blogger", on_delete=models.CASCADE)
 	bio = models.TextField(max_length=500)
 	page = models.SlugField(max_length=100, blank=True)
-	joined = models.DateTimeField(auto_now_add=True)
+	date_joined = models.DateTimeField(auto_now_add=True)
 	last_updated = models.DateTimeField(blank=True, null=True, editable=False)
 
 
@@ -24,13 +24,28 @@ class Blogger(models.Model):
 			self.page = slugify(user_names[:90])
 
 		super(Blogger, self).save(*args, **kwargs)
+"""
+	@property
+	def filterable_fields(self):
+    	'''
+		Returns a tuple of the provided model's filterable fields
+		'''
+		return ('user','bio','page',)
+
+	@property
+	def searchable_fields(self):
+        '''
+            Returns a tupled list of the the provided model's searchable fields
+        '''
+        return ('bio','user',)
+"""
 
 class Blog(models.Model):
 	owner = models.ForeignKey(Blogger, related_name="blogs", on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
 	page = models.SlugField(max_length=110, blank=True, null=True)
-	created = models.DateTimeField(auto_now_add=True)
+	date_created = models.DateTimeField(auto_now_add=True)
 	last_updated = models.DateTimeField(null=True, blank=True, editable=False)
 
 	def __str__(self):
@@ -40,8 +55,22 @@ class Blog(models.Model):
 		if not self.page:
 			self.page = slugify(self.name)
 		super(Blog, self).save(*args, **kwargs)
-    		
+"""
+	@property
+    def filterable_fields(self):
+        '''
+            Returns a tuple of the provided model's filterable fields
+        '''
+        return ('name','owner','active','page','date_created',)
 
+    @property
+    def searchable_fields(self):
+        '''
+            Returns a tupled list of the the provided model's searchable fields
+        '''
+        return ('name','desc',)
+    		
+"""
 class BlogCategory(models.Model):
 	name = models.CharField(max_length=100)
 	desc = models.TextField(verbose_name="Description", max_length=350)
@@ -60,18 +89,46 @@ class BlogCategory(models.Model):
 
 	def __str__(self):
 		return self.name 
+"""
+	@property
+    def filterable_fields(self):
+        '''
+            Returns a tuple of the provided model's filterable fields
+        '''
+        return ('blog','title','page',)
 
+    @property
+    def searchable_fields(self):
+        '''
+            Returns a tupled list of the the provided model's searchable fields
+        '''
+        return ('blog__name','title','desc',)
+"""
 class BlogPost(models.Model):
 	category = models.ForeignKey(BlogCategory, related_name="posts", on_delete=models.CASCADE)
 	title = models.CharField(max_length=100)
 	page = models.SlugField(max_length=120, blank=True)
 	body = models.TextField()
-	post_date = models.DateTimeField(auto_now_add=True)
+	posted_date = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(blank=True, null=True, editable=False)
 
 	def __str__(self):
 		return "%s => %s" % (self.title, self.category.name)
+"""
+	@property
+    def filterable_fields(self):
+        '''
+            Returns a tuple of the provided model's filterable fields
+        '''
+        return ('category','title','page','tags','posted_date','updated_date',)
 
+    @property
+    def searchable_fields(self):
+        '''
+            Returns a tupled list of the the provided model's searchable fields
+        '''
+        return ('title','body',)
+"""
 class Comment(models.Model):
 	commenter = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
 	subject = models.CharField(max_length=100)

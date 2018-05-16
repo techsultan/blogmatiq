@@ -8,7 +8,7 @@ from blogger.api import views
 urlpatterns = format_suffix_patterns (
 [  url(r'^$', views.blog_api_root, name="blog_api_root"),
    url(r'^bloggers/$', views.BloggerListView.as_view(), name="blogger_list"),
-   url(r'^/bloggers/(?P<page>[-\w]+)/$', views.BloggerDetailView.as_view(), name="blogger_detail"),
+   url(r'^bloggers/(?P<page>[-\w]+)/$', views.BloggerDetailView.as_view(), name="blogger_detail"),
    url(r'^blogs/$', views.BlogListView.as_view(), name="blog_list"),
    url(r'^blogs/(?P<page>[-\w]+)/$', views.BlogDetailView.as_view(), name="blog_detail"),
    url(r'^blogposts/$', views.BlogPostListView.as_view(), name="blogpost_list"),
