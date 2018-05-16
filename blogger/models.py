@@ -75,7 +75,7 @@ class BlogPost(models.Model):
 class Comment(models.Model):
 	commenter = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
 	subject = models.CharField(max_length=100)
-	link = models.SlugField(max_length=120, blank=True)
+	page = models.SlugField(max_length=120, blank=True)
 	blog_post = models.ForeignKey(BlogPost, related_name="comments", on_delete=models.CASCADE)
 	body = models.TextField(max_length=500)
 	comment_date = models.DateTimeField(auto_now_add=True)
@@ -84,6 +84,6 @@ class Comment(models.Model):
 		return "%s" % (self.subject)
 
 	def save(self, *args, **kwargs):
-		if not self.link:
-			self.link = slugify(self.subject)
+		if not self.page:
+			self.page = slugify(self.subject)
 		super(Comment, self).save(*args, **kwargs)
