@@ -15,6 +15,6 @@ urlpatterns = format_suffix_patterns (
    url(r'^blogposts/(?P<page>[-\w]+)/$', views.BlogPostDetailView.as_view(), name="blogpost_detail"),
    url(r'^blogcategories/$', views.BlogCategoryListView.as_view(), name="blogcategory_list"),
    url(r'^blogcategories/(?P<page>[-\w]+)/$', views.BlogCategoryDetailView.as_view(), name="blogcategory_detail"),
-   url(r''),	
+   url(r'^comments/$', views.CommentListAPIView.as_view(), name="comment_list"),	
    ]
 )
