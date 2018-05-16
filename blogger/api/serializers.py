@@ -73,7 +73,7 @@ class BlogCategorySerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = BlogCategory 
-        fields = get_model_field_names(BlogCategory, ['id'])
+        fields = get_model_field_names(BlogCategory, ['id']) + ('blog_posts',)
 
 class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     """
@@ -99,7 +99,7 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = BlogPost 
-        fields = get_model_field_names(BlogPost, ['id'])+('blog_url','category_url')
+        fields = get_model_field_names(BlogPost, ['id'])+('blog_url','category_url') + ('tags',)
 
     def get_blog_url(self, obj):
         return obj.category.blog.page
