@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'blogger',
     'socialite',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [

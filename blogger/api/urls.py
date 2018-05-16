@@ -6,7 +6,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from blogger.api import views 
 
 urlpatterns = format_suffix_patterns (
-[  url(r'^$', views.blog_api_root, name="blog_api_root"),
+[  url(r'^$', views.blogger_api_root, name="blogger_api_root"),
    url(r'^bloggers/$', views.BloggerListView.as_view(), name="blogger_list"),
    url(r'^bloggers/(?P<page>[-\w]+)/$', views.BloggerDetailView.as_view(), name="blogger_detail"),
    url(r'^blogs/$', views.BlogListView.as_view(), name="blog_list"),

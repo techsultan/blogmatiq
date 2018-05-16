@@ -37,15 +37,15 @@ def get_object(model_name, page):
 
 @api_view(['GET'])
 #@authentication_classes((SessionAuthentication,TokenAuthentication,))
-def blog_api_root(request, format=None):
+def blogger_api_root(request, format=None):
     """
-    URL endpoint to serve as the API Root (landing page) of the Souq ("Marketplace") API.
+    URL endpoint to serve as the API Root (landing page) of the Blogger app's API.
     """
     return Response({
-            'bloggers': reverse('blog_api:blogger_list', request=request, format=format),
-            'blogs': reverse('blog_api:blog_list', request=request, format=format),
-            'blogcategories': reverse('blog_api:blogcategory_list', request=request, format=format),
-            'blogposts': reverse('blog_api:blogpost_list', request=request, format=format)
+            'bloggers': reverse('blogger_api:blogger_list', request=request, format=format),
+            'blogs': reverse('blogger_api:blog_list', request=request, format=format),
+            'blogcategories': reverse('blogger_api:blogcategory_list', request=request, format=format),
+            'blogposts': reverse('blogger_api:blogpost_list', request=request, format=format)
         })
 
 class BloggerListView(generics.ListCreateAPIView):
