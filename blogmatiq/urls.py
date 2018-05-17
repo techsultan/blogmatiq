@@ -20,5 +20,6 @@ from socialite.api.views import blogmatiq_api_root
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/blogger/', include('blogger.api.urls', namespace="blogger_api")),
-    url(r'^$', blogmatiq_api_root, name="blogmatiq_api_root"),
+    url(r'^api/$', blogmatiq_api_root, name="blogmatiq_api_root"),
+    url(r'', include('blogger.urls', namespace="blogger")),
 ]
