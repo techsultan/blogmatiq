@@ -1,5 +1,5 @@
 #Virtualenv
-blog_env/
+env/
 
 #Compiled Python Files
 *.pyc
