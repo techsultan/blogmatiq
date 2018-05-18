@@ -10,6 +10,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { BloggerListComponent } from './components/blogger-list/blogger-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
     CommentComponent,
     BlogListComponent,
     BloggerListComponent,
-    CommentListComponent
+    CommentListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule
