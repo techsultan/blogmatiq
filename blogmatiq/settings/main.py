@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'blogger',
     'socialite',
     'rest_framework',
+    'rest_framework.authtoken',
+    'social_django',
+    'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
