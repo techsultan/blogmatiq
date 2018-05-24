@@ -124,3 +124,28 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
+
+
+# DJANGO-REST-FRAMEWORK API SETTINGS
+REST_FRAMEWORK = {
+ # 'DEFAULT_AUTHENTICATION_CLASSES': (
+       # 'rest_framework.authentication.BasicAuthentication',
+       # 'rest_framework.authentication.TokenAuthentication',
+    #),
+    #'DEFAULT_PERMISSION_CLASSES': (
+        #'rest_framework.permissions.IsAuthenticated',
+    #),
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.UserRateThrottle',
+        #'jama.api.throttling.AdminUserThrottle',
+        #'souq.api.throttling.VendorUserThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '200/day',
+        'admin': '3000/day',
+        'vendor': '1000/day'
+    },
+    'DEFAULT_FILTER_BACKENDS':(
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
