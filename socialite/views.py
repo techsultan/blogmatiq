@@ -1,5 +1,6 @@
 from django.shortcuts import render
- 
+
+SITE_URL = "http://Example.com" #REPLACE with your actual website URL
 # Create your views here.
 def home(request):
     return render(request, "Socialite Home")
