@@ -13,6 +13,8 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { HomeComponent } from './components/home/home.component';
 
 //Import all custom modules
+import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 
 //Import thirdparty modules 
 
@@ -27,10 +29,11 @@ import { HomeComponent } from './components/home/home.component';
     BlogListComponent,
     BloggerListComponent,
     CommentListComponent,
-    HomeComponent
+    HomeComponent,
+    BlogDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, BlogRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
