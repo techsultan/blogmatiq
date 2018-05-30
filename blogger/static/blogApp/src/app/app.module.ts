@@ -12,6 +12,10 @@ import { BloggerListComponent } from './components/blogger-list/blogger-list.com
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { HomeComponent } from './components/home/home.component';
 
+//Import all custom modules
+
+//Import thirdparty modules 
+
 @NgModule({
   declarations: [
     AppComponent,
