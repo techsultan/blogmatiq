@@ -13,7 +13,7 @@ MEDIA_ROOT = ""
 
 
 #Django-CORS-headers configuration
-# Allow requests from the Angular5 
+# Allow requests from the Angular 6
 # localhost port (4200) to go through
 CORS_ORIGIN_WHITELIST = (
 	'http://localhost:4200',

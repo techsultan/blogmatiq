@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { BloggerDetailComponent } from './components/blogger-detail/blogger-detail.component';
+import { RecentPostsComponent } from './components/recent-posts/recent-posts.component';
 
 //Import thirdparty modules 
 
@@ -30,7 +31,8 @@ import { BloggerDetailComponent } from './components/blogger-detail/blogger-deta
     CommentListComponent,
     HomeComponent,
     BlogDetailComponent,
-    BloggerDetailComponent
+    BloggerDetailComponent,
+    RecentPostsComponent
   ],
   imports: [
     BrowserModule, BlogRoutingModule
