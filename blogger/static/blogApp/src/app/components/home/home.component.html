@@ -5,3 +5,18 @@ Below are the blogs currently on the Blogmatiq platform
   <div class="mdl-cell mdl-cell--9-col">
 
 </div>
+
+<div>
+  <a [routerLink]="['blogs']"> List of Blogs</a>
+
+      
+  <a routerLink="bloggers">Most Read Bloggers</a>
+
+  <h3>Our Most Recent Blog Posts</h3>
+  <ul>
+    <li *ngFor="let post of blog_posts">
+      {{ post }}
+    </li>
+
+  </ul>
+</div>

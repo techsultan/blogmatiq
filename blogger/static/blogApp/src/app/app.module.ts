@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BloggerComponent } from './components/blogger/blogger.component';
-import { BlogComponent } from './components/blog/blog.component';
 import { BlogCategoryComponent } from './components/blog-category/blog-category.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { CommentComponent } from './components/comment/comment.component';
@@ -15,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 //Import all custom modules
 import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
+import { BloggerDetailComponent } from './components/blogger-detail/blogger-detail.component';
 
 //Import thirdparty modules 
 
@@ -22,7 +22,6 @@ import { BlogDetailComponent } from './components/blog-detail/blog-detail.compon
   declarations: [
     AppComponent,
     BloggerComponent,
-    BlogComponent,
     BlogCategoryComponent,
     BlogPostComponent,
     CommentComponent,
@@ -30,7 +29,8 @@ import { BlogDetailComponent } from './components/blog-detail/blog-detail.compon
     BloggerListComponent,
     CommentListComponent,
     HomeComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    BloggerDetailComponent
   ],
   imports: [
     BrowserModule, BlogRoutingModule
