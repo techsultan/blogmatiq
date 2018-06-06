@@ -1,3 +1,12 @@
+/* Import the API Services used by blogApp*/
+import { CommentService } from './services/comment.service';
+import { BlogPostService } from './services/blog-post.service';
+import { BloggerService } from './services/blogger.service';
+import { BlogCategoryService } from './services/blog-category.service';
+import { BlogService } from './services/blog.service';
+import { AuthService } from './services/auth.service';
+
+//Import blogApp's dependent modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,8 +28,7 @@ import { RecentPostsComponent } from './components/recent-posts/recent-posts.com
 import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
 import { MaterialModule } from './modules/material/material.module';
 
-/* Import the API Services used by blogApp*/
-import {  }
+
 //Import thirdparty modules 
 
 @NgModule({
@@ -41,7 +49,10 @@ import {  }
   imports: [
     BrowserModule, BlogRoutingModule, MaterialModule, BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService, BloggerService, BlogService, 
+    BlogCategoryService, BlogPostService, CommentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
