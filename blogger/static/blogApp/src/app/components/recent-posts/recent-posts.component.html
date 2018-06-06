@@ -1,3 +1,11 @@
+<h3>Most Recent Blog Posts</h3>
+
 <p>
-  recent-posts works!
+  These are some of our most recent blog posts
 </p>
+
+<ul>
+  <li *ngFor="let post of blog_posts">
+    {{ post.title }}
+  </li>
+</ul>

@@ -10,6 +10,7 @@ import { BlogCategoryComponent } from '../../components/blog-category/blog-categ
 import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
 import { BloggerListComponent }  from '../../components/blogger-list/blogger-list.component';
 import { BloggerDetailComponent } from '../../components/blogger-detail/blogger-detail.component';
+import { RecentPostsComponent } from '../../components/recent-posts/recent-posts.component';
 //import { CommentListComponent } from '../../components/comment-list/comment-list.component';
 //import { CommentComponent } from '../../components/comment/comment.component';
 
@@ -31,6 +32,10 @@ const routes: Routes = [
  {
    path: 'blogs',
    component: BlogListComponent
+ },
+ {
+   path: 'recent-posts',
+   component: RecentPostsComponent
  },
  {
    path: 'blogs/:blogUrl',

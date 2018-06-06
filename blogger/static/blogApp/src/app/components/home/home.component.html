@@ -7,12 +7,18 @@ Below are the blogs currently on the Blogmatiq platform
 </div>
 
 <div>
-  <a [routerLink]="['blogs']"> List of Blogs</a>
+  <p>
+    <a [routerLink]="['blogs']"> List of Blogs</a>
+  </p>
 
-      
-  <a routerLink="bloggers">Most Read Bloggers</a>
+    <p>
+      <a routerLink="bloggers">Most Read Bloggers</a>
+    </p>
 
-  <h3>Our Most Recent Blog Posts</h3>
+  <h3>Our Most Recent Blog Posts </h3>
+  <p>
+    For the full list of our most recent blog posts, see <a routerLink="['recent-posts']">here</a>.
+  </p>
   <ul>
     <li *ngFor="let post of blog_posts">
       {{ post }}

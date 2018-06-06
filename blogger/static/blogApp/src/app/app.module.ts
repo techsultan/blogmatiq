@@ -10,13 +10,13 @@ import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { BloggerListComponent } from './components/blogger-list/blogger-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { HomeComponent } from './components/home/home.component';
-
-//Import all custom modules
-import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { BloggerDetailComponent } from './components/blogger-detail/blogger-detail.component';
 import { RecentPostsComponent } from './components/recent-posts/recent-posts.component';
 
+//Import all custom modules
+import { BlogRoutingModule } from './modules/blog-routing/blog-routing.module';
+import { MaterialModule } from './modules/material/material.module';
 //Import thirdparty modules 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { RecentPostsComponent } from './components/recent-posts/recent-posts.com
     RecentPostsComponent
   ],
   imports: [
-    BrowserModule, BlogRoutingModule
+    BrowserModule, BlogRoutingModule, MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
