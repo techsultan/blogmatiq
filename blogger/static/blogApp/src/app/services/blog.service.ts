@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  constructor() { }
+  bloApiUrl:string = "/api/blogs/";
+
+  constructor(private Http: HttpClient) { }
+
+
 }
