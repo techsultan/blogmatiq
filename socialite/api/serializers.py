@@ -3,11 +3,14 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User 
 from blogger.models import (Blogger, Blog, BlogCategory, BlogPost)
 from blogmatiq.utils.models import get_model_field_names
-from socialite.models import (Socialite,Tag, Comment)
+from socialite.models import (Socialite,Tag)
+from blogger.models import Comment 
 
 class UserSerializer(serializers.ModelSerializer):
     socialite = serializers.HyperlinkedRelatedField(
-
+        view_name="socialite_api:socialite_detail",
+        queryset = Socialite.objects.all(),
+        lookup_field = "page"
     )
     comments = serializers.HyperlinkedRelatedField(
         many=True,
@@ -24,7 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User 
-        fields = get_model_field_names(BlogPost, ['id'])+('blog_url','category_url')
+        fields = get_model_field_names(BlogPost, ['id'])+('blog_url', 'socialite','blogger',)
 
     def get_page(self, obj):
         """
@@ -36,9 +39,9 @@ class SocialiteSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.HyperlinkedRelatedField(
         queryset = User.objects.all(),
         view_name = 'socialite_api:user_detail',
-        lookup_field = "page"
+        lookup_field = "pk"
     )
 
     class Meta:
         model = Socialite 
-        fields = get_model_field_names()
+        fields = get_model_field_names(Socialite,['id'])

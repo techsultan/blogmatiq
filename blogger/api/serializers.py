@@ -11,12 +11,13 @@ class BloggerSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.HyperlinkedRelatedField(
         queryset= User.objects.all(),
         view_name = 'socialite_api:user_detail' ,
-        lookup_field = "page"
+        lookup_field = "pk"
     )
     blogs = serializers.HyperlinkedRelatedField(
         queryset =  Blog.objects.all(),
-        view_name = "blog_api:blog_detail",
-        lookup_field = "page"
+        view_name = "blogger_api:blog_detail",
+        lookup_field = "page",
+        many=True
     )
     first_name = serializers.SerializerMethodField()
     last_name = serializers.SerializerMethodField()
@@ -45,13 +46,14 @@ class BlogSerializer(serializers.HyperlinkedModelSerializer):
     categories = serializers.HyperlinkedRelatedField(
         many=True,
         queryset=BlogCategory.objects.all(),
-        view_name='blog_api:blogcategory_detail',
+        view_name='blogger_api:blogcategory_detail',
         lookup_field="page"
         )
     owner = serializers.HyperlinkedRelatedField(
         queryset=Blogger.objects.all(),
-        view_name="blog_api:blogger_detail",
-        lookup_field = 'page')
+        view_name="blogger_api:blogger_detail",
+        lookup_field = 'page'
+        )
     
     class Meta:
         model = Blog
@@ -63,13 +65,13 @@ class BlogCategorySerializer(serializers.HyperlinkedModelSerializer):
     """
     blog = serializers.HyperlinkedRelatedField(
         queryset = Blog.objects.all(),
-        view_name ='blog_api:blog_detail',
+        view_name ='blogger_api:blog_detail',
         lookup_field ='page')
     blog_posts = serializers.HyperlinkedRelatedField(
         many=True, 
         queryset=BlogPost.objects.all(),
-        view_name='blog_api:blogpost_detail',
-        lookup_field="page") # OR JUST 'blog_api:blogposts' ??> TEST
+        view_name='blogger_api:blogpost_detail',
+        lookup_field="page") # OR JUST 'blogger_api:blogposts' ??> TEST
     
     class Meta:
         model = BlogCategory 
@@ -87,12 +89,12 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
         )
     category = serializers.HyperlinkedRelatedField(
         queryset = BlogCategory.objects.all(), 
-        view_name='blog_api:blogcategory_detail',
+        view_name='blogger_api:blogcategory_detail',
         lookup_field="page")
     comments = serializers.HyperlinkedRelatedField(
         many=True,
         queryset = Comment.objects.all(),
-        view_name = "blog_api:comment_detail"
+        view_name = "blogger_api:comment_detail"
     )
     blog_url = serializers.SerializerMethodField()
     category_url = serializers.SerializerMethodField()
@@ -114,7 +116,7 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
     )
     blog_post = serializers.HyperlinkedRelatedField(
         queryset = BlogPost.objects.all(),
-        view_name = "blog_api:blogpost_detail",
+        view_name = "blogger_api:blogpost_detail",
         lookup_field = "page"
     )
     

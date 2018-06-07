@@ -16,10 +16,10 @@ class Blogger(models.Model):
 
 
 	def __str__(self):
-		return "%: %" % (self.user.username, self.joined)
+		return "%s: %s" % (self.user.username, self.date_joined)
 
 	def save(self, *args, **kwargs):
-		if not page:
+		if not self.page:
 			user_names = self.user.first_name + self.user.last_name
 			self.page = slugify(user_names[:90])
 

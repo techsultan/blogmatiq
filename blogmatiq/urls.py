@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^socialite/', include('socialite.urls', namespace="socialite")),
     url(r'', include('blogger.urls', namespace="blogger")),
     url(r'^api/blogger/', include('blogger.api.urls', namespace="blogger_api")),
+    url(r'^api/socialite/', include('socialite.api.urls', namespace='socialite_api')),
 ]
