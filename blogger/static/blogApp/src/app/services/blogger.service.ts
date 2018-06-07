@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class BloggerService {
   bloggerApiUrl:string;
-  blogger_api:string = "/api/blog/bloggers/";
+  blogger_api:string = "/api/blogger/bloggers/";
 
   constructor(private http:HttpClient, private ApiRoot: ApiRootService) {
     this.bloggerApiUrl = this.ApiRoot.getRoot() + this.blogger_api;

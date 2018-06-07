@@ -2,15 +2,13 @@ import { ApiRootService } from './api-root.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class BlogPostService {
 
   blogPostApiUrl: string;
-  blogpost_api:string = "/api/blog/blogposts/";
+  blogpost_api:string = "/api/blogger/blogposts/";
 
   constructor(private http:HttpClient, private ApiRoot: ApiRootService) {
     this.blogPostApiUrl = this.ApiRoot.getRoot() + this.blogpost_api;

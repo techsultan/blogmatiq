@@ -7,7 +7,7 @@ import { ApiRootService } from './api-root.service';
 })
 export class BlogCategoryService {
   categoryApiUrl: string;
-  blog_category_api:string = "/api/blog/blogcategories/";
+  blog_category_api:string = "/api/blogger/blogcategories/";
 
   constructor(private http:HttpClient, private ApiRoot: ApiRootService) {
     this.categoryApiUrl = this.ApiRoot.getRoot() + this.blog_category_api;
