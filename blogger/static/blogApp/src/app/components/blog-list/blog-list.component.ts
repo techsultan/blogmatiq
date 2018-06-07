@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+/* Import routing classes from the Angular router */
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 //Import the API services needed for this component to request and send data over HTTP.
 import { BlogService } from '../../services/blog.service';
 import { BlogPostService } from '../../services/blog-post.service';
 import { Blog } from '../../classes/blog';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+
 import { BLOG_LIST } from '../../mock-data/blog_list';
 
 @Component({
   selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  templateUrl: './blog-list.component.html',
+  styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
 

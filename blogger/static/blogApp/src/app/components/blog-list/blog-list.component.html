@@ -1,3 +1,25 @@
-<p>
-  blog-list works!
+<button value="Home" (click)="gotoHomePage()"> Home </button>
+
+<p *ngIf="blog_error_message">
+  Error: {{ blog_error_message }}
 </p>
+
+<h4> List of Current Blogs </h4>
+<ul>  
+  <li *ngFor="let blog of blog_list">
+    <a [routerLink]="['/blogs', blog.link]">{{ blog.name }}</a>
+  </li>
+</ul>
+
+<h4> List of Most Recent Blog Posts </h4>
+<p *ngIf="posts_error_message">
+  {{ posts_error_message }}
+</p>
+<ul>  
+  <li *ngFor="let post of blog_posts">
+    <a routerLink="['/blogs',post.blog_url, post.id]">
+        {{ post.title }} 
+    </a>
+  </li>
+
+</ul>

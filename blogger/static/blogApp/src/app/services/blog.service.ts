@@ -10,7 +10,7 @@ export class BlogService {
   blog_api_endpoint:string = "/api/blogs/";
 
   constructor(private Http: HttpClient, private ApiRoot: ApiRootService) { 
-    this.blogApiUrl = this.ApiRoot.getRoot() + this.blog_category_api;
+    this.blogApiUrl = this.ApiRoot.getRoot() + this.blog_api_endpoint;
   }
 
   getAllBlogs(){
