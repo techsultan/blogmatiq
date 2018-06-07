@@ -10,6 +10,7 @@ import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BloggerComponent } from './components/blogger/blogger.component';
@@ -47,7 +48,8 @@ import { MaterialModule } from './modules/material/material.module';
     RecentPostsComponent
   ],
   imports: [
-    BrowserModule, BlogRoutingModule, MaterialModule, BrowserAnimationsModule
+    BrowserModule, BlogRoutingModule, MaterialModule, 
+    BrowserAnimationsModule, HttpClientModule
   ],
   providers: [
     AuthService, BloggerService, BlogService, 

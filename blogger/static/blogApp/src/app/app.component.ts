@@ -1,5 +1,7 @@
+import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,14 @@ import {Router} from '@angular/router';
 export class AppComponent {
   title = 'Blogmatiq';
 
-  constructor(private router: Router){
+  constructor(private router: Router, private authService:AuthService){
 
   }
   goHome(){
     this.router.navigate([''])
+  }
+
+  login(){
+    return this.authService.login();
   }
 }

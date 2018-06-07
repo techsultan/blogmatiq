@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BlogService {
-  bloApiUrl:string = "/api/blogs/";
+  blogApiUrl:string = "/api/blogs/";
 
   constructor(private Http: HttpClient) { }
 
