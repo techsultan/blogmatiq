@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiRootService } from './api-root.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
-  blogApiUrl:string = "/api/blogs/";
+  blogApiUrl:string;
+  blog_api_endpoint:string = "/api/blogs/";
 
-  constructor(private Http: HttpClient) { }
+  constructor(private Http: HttpClient, private ApiRoot: ApiRootService) { 
+    this.blogApiUrl = this.ApiRoot.getRoot() + this.blog_category_api;
+  }
 
   getAllBlogs(){
    return this.Http.get(this.blogApiUrl);
