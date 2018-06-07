@@ -1,3 +1,30 @@
-<p>
-  blog-detail works!
+<button (click)="gotoBlogsHome()">
+  Blogs Home
+</button>
+
+<h3>
+  {{ blog.name }}
+</h3>
+
+<div>
+  {{ blog.desc }}
+</div>
+
+<h4>
+  Blog Categories
+</h4>
+<ul>
+  <li *ngFor="let category of category_list; let i = index">
+    <a [routerLink]="['/blogs', blog.link,'categories',category.link]">  {{ category.title }} </a>
+  </li>
+</ul>
+
+<h4>
+  Most Recent Posts in {{ blog.name }}
+</h4>
+<p *ngFor="let post of blog_posts">
+  <a [routerLink]="['/blogs', blog.link, post.link]">
+    {{ post.title }}
+  </a>
 </p>
+
