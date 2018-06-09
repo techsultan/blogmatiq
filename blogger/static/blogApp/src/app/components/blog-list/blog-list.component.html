@@ -7,7 +7,7 @@
 <h4> List of Current Blogs </h4>
 <ul>  
   <li *ngFor="let blog of blog_list">
-    <a [routerLink]="['/blogs', blog.link]">{{ blog.name }}</a>
+    <a [routerLink]="['/blogs', blog.page]">{{ blog.name }}</a>
   </li>
 </ul>
 

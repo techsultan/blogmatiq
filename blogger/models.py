@@ -20,7 +20,7 @@ class Blogger(models.Model):
 
 	def save(self, *args, **kwargs):
 		if not self.page:
-			user_names = self.user.first_name + self.user.last_name
+			user_names = self.user.first_name + ' ' + self.user.last_name
 			self.page = slugify(user_names[:90])
 
 		super(Blogger, self).save(*args, **kwargs)
@@ -44,7 +44,7 @@ class Blog(models.Model):
 	owner = models.ForeignKey(Blogger, related_name="blogs", on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
-	page = models.SlugField(max_length=110, blank=True, null=True)
+	page = models.SlugField(max_length=110, blank=True)
 	date_created = models.DateTimeField(auto_now_add=True)
 	last_updated = models.DateTimeField(null=True, blank=True, editable=False)
 
@@ -105,7 +105,7 @@ class BlogCategory(models.Model):
         return ('blog__name','title','desc',)
 """
 class BlogPost(models.Model):
-	category = models.ForeignKey(BlogCategory, related_name="posts", on_delete=models.CASCADE)
+	category = models.ForeignKey(BlogCategory, related_name="blog_posts", on_delete=models.CASCADE)
 	title = models.CharField(max_length=100)
 	page = models.SlugField(max_length=120, blank=True)
 	body = models.TextField()

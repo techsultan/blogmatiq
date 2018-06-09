@@ -15,7 +15,7 @@
 </h4>
 <ul>
   <li *ngFor="let category of category_list; let i = index">
-    <a [routerLink]="['/blogs', blog.link,'categories',category.link]">  {{ category.title }} </a>
+    <a [routerLink]="['/blogs', blog.page,'categories',category.page]">  {{ category.title }} </a>
   </li>
 </ul>
 
@@ -23,7 +23,7 @@
   Most Recent Posts in {{ blog.name }}
 </h4>
 <p *ngFor="let post of blog_posts">
-  <a [routerLink]="['/blogs', blog.link, post.link]">
+  <a [routerLink]="['/blogs', blog.page, post.page]">
     {{ post.title }}
   </a>
 </p>

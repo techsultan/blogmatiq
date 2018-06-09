@@ -51,7 +51,7 @@ class BlogSerializer(serializers.HyperlinkedModelSerializer):
         )
     owner = serializers.HyperlinkedRelatedField(
         queryset=Blogger.objects.all(),
-        view_name="blogger_api:blogger_detail",
+        view_name='blogger_api:blogger_detail',
         lookup_field = 'page'
         )
     
