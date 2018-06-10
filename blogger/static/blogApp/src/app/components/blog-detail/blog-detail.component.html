@@ -10,12 +10,13 @@
   {{ blog.desc }}
 </div>
 
-<h4>
+<h4 *ngIf="blog && blog.page">
   Blog Categories
 </h4>
-<ul>
+
+<ul *ngIf="blog && blog.page">
   <li *ngFor="let category of category_list; let i = index">
-    <a [routerLink]="['/blogs', blog.page,'categories',category.page]">  {{ category.title }} </a>
+    <a [routerLink]="['/blogs', blog.page, category.page]">  {{ category.title }} </a>
   </li>
 </ul>
 

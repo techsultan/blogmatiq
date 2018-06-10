@@ -52,7 +52,7 @@ export class BlogDetailComponent implements OnInit {
     this.blogService.getBlogByUrl(this.blogUrl).subscribe(
       res => {
         this.blog = res;
-        console.log("BlogDetailComponent.getBlogDetails() =" + this.blog);
+        console.log("BlogDetailComponent.getBlogDetails() =" + this.blog.page);
       },
       err => {
         this.blog_error_message = err.message;
@@ -76,6 +76,7 @@ export class BlogDetailComponent implements OnInit {
     this.categoryService.getCategoriesByBlog(this.blogUrl).subscribe(
       res => {
         this.category_list = res;
+        console.log(this.category_list);
       },
       err => {
         this.category_list_error_message = err.message;
