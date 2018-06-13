@@ -1,3 +1,34 @@
-<p>
-  blog-category works!
-</p>
+<button (click)="gotoParentBlog()"> << Blog </button>
+
+<h3>
+    {{ category.title }}
+  </h3>
+
+  <p mat-card>
+    {{ category.desc }}
+  </p>
+
+  <p>
+    These are the most recent blog posts in the {{ category.title }} category.
+  </p>
+
+  <div class="container" *ngIf="category_posts">
+      <mat-grid-list cols="{{ category_posts.length/2 }}" rowHeight="3:1">
+          <mat-grid-tile *ngFor="let post of category_posts">
+              <a [routerLink]="['/blogs', post.blog_url, post.link]">
+                {{ post.title }}
+              </a>  
+          </mat-grid-tile>
+      </mat-grid-list>
+
+    <!---ul>
+      <li *ngFor="let post of category_posts">
+        <a [routerLink]="['/blogs', post.blog_url, post.link]">
+          {{ post.title }}
+        </a>
+      </li>
+    </ul-->
+  </div>
+  <p *ngIf="posts_error_message">
+    {{ posts_error_message }}
+  </p>

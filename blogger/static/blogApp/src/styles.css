@@ -2,3 +2,4 @@
 
 /* This is the Angular Material that will form the core styles of the Blogmatiq UI*/
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body { margin: 0; }
