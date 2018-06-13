@@ -88,15 +88,15 @@ class BlogCategory(models.Model):
 
 
 	def __str__(self):
-		return self.name 
-"""
-	@property
-    def filterable_fields(self):
-        '''
-            Returns a tuple of the provided model's filterable fields
-        '''
-        return ('blog','title','page',)
+		return self.name \
 
+	@property
+	def filterable_fields(self):
+		'''
+		Hello
+		'''
+		return ('blog','name','page','blog__page',)
+"""
     @property
     def searchable_fields(self):
         '''

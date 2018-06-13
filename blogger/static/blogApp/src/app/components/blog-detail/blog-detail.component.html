@@ -15,8 +15,8 @@
 </h4>
 
 <ul>
-  <li *ngFor="let category of category_list">
-    <a [routerLink]="['/blogs', blog.page, category.page]">  {{ category.name }} </a>
+  <li *ngFor="let category of category_list; let i=index">
+    {{ i+1 }}  <a [routerLink]="['/blogs', blog.page, category.page]">  {{ category.name }} </a>
   </li>
 </ul>
 

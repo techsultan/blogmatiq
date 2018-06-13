@@ -53,6 +53,7 @@ export class BlogDetailComponent implements OnInit {
       res => {
         this.blog = res;
         console.log("BlogDetailComponent.getBlogDetails() =" + this.blog.page);
+        
       },
       err => {
         this.blog_error_message = err.message;

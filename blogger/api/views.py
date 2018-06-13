@@ -75,9 +75,10 @@ class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
 class BlogCategoryListView(generics.ListCreateAPIView):
     queryset = BlogCategory.objects.all()
     serializer_class = BlogCategorySerializer
-    #filter_fields = BlogCategory.filterable_fields
+    filter_fields = BlogCategory.filterable_fields
     #search_fields = BlogCategory.searchable_fields
     lookup_field = "page"
+    filter_backends = (DjangoFilterBackend,)
 
 class BlogCategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogCategory.objects.all()
