@@ -14,7 +14,7 @@
   Blog Categories
 </h4>
 
-<ul>
+<ul *ngIf="category_list">
   <li *ngFor="let category of category_list; let i=index">
     {{ i+1 }}  <a [routerLink]="['/blogs', blog.page, category.page]">  {{ category.name }} </a>
   </li>
