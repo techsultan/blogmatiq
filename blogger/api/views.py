@@ -90,8 +90,8 @@ class BlogCategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
 class BlogPostListView(generics.ListCreateAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
-    #filter_backends = (DjangoFilterBackend,)
-    #filter_fields = BlogPost.filterable_fields
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = BlogPost.filterable_fields
     #search_fields = BlogPost.searchable_fields
     lookup_field  = "page"
 
@@ -99,6 +99,8 @@ class BlogPostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
     lookup_field = "page"
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = BlogPost.filterable_fields
 
 class CommentListAPIView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()

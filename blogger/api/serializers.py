@@ -68,14 +68,14 @@ class BlogCategorySerializer(serializers.HyperlinkedModelSerializer):
         view_name ='blogger_api:blog_detail',
         lookup_field ='page')
     blog_posts = serializers.HyperlinkedRelatedField(
-        many=True, 
         queryset=BlogPost.objects.all(),
         view_name='blogger_api:blogpost_detail',
-        lookup_field="page") # OR JUST 'blogger_api:blogposts' ??> TEST
+        many=True,
+        lookup_field='page') # OR JUST 'blogger_api:blogposts' ??> TEST
     
     class Meta:
         model = BlogCategory 
-        fields = get_model_field_names(BlogCategory, ['id']) + ('blog_posts',)
+        fields = get_model_field_names(BlogCategory, ['id'])
 
 class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     """

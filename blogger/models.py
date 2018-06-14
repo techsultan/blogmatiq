@@ -114,14 +114,15 @@ class BlogPost(models.Model):
 
 	def __str__(self):
 		return "%s => %s" % (self.title, self.category.name)
-"""
-	@property
-    def filterable_fields(self):
-        '''
-            Returns a tuple of the provided model's filterable fields
-        '''
-        return ('category','title','page','tags','posted_date','updated_date',)
 
+	@property
+	def filterable_fields(self):
+		'''
+		Returns a tuple of the provided model's filterable fields
+		'''
+		return ('category','title','page','posted_date','updated','category__page',)
+
+"""
     @property
     def searchable_fields(self):
         '''
