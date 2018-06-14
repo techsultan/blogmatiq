@@ -81,12 +81,14 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     """
     BlogPostSerializer is the API's serialized representation of the blog.BlogPost model.
     """
+    """
     tags = serializers.HyperlinkedRelatedField(
         many=True, 
         queryset=Tag.objects.all(),
         view_name='socialite_api:tag_detail',
         lookup_field = "page"
         )
+    """
     category = serializers.HyperlinkedRelatedField(
         queryset = BlogCategory.objects.all(), 
         view_name='blogger_api:blogcategory_detail',
@@ -101,7 +103,7 @@ class BlogPostSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:
         model = BlogPost 
-        fields = get_model_field_names(BlogPost, ['id'])+('blog_url','category_url') + ('tags',)
+        fields = get_model_field_names(BlogPost, ['id'])+('blog_url','category_url',)
 
     def get_blog_url(self, obj):
         return obj.category.blog.page
